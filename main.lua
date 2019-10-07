@@ -1,14 +1,16 @@
 local Map = require 'core/map'
+local Util = require 'core/util'
 
 
 
 function love.load()
-  x1 = 400
-  y1 = 300
-  playerImg1 = love.graphics.newImage('assets-1/player/base/octopode_1.png')
-  x2 = 200
-  y2 = 575
-  playerImg2 = love.graphics.newImage('assets-1/player/base/octopode_2.png')
+  x = 400
+  y = 300
+  playerImg = love.graphics.newImage('assets-1/player/base/octopode_1.png')
+  w = 64   
+  h = 64   
+  hp = 100 
+  
   map = Map:new(10, 13)
   floor = love.graphics.newImage('assets-1/dungeon/wall/cobalt_stone_12.png')
   wall  = love.graphics.newImage('assets-1/dungeon/floor/green_bones_12.png')
@@ -33,40 +35,29 @@ end
 
 function love.update(dt)
   if love.keyboard.isDown('up') then
-    y1 = y1 - 5
+    y = y - 5
   end
   if love.keyboard.isDown('down') then
-    y1 = y1 + 5
+    y = y + 5
   end
   if love.keyboard.isDown('left') then
-    x1 = x1 - 5
+    x = x - 5
   end
   if love.keyboard.isDown('right') then
-    x1 = x1 + 5
+    x = x + 5
   end
 
-  
-   if love.keyboard.isDown('w') then
-     y2 = y2 - 5
-   end
-   if love.keyboard.isDown('s') then
-     y2 = y2 + 5
-   end
-  
-   
-  if love.keyboard.isDown('a') then
-     x2 = x2 - 5
-   end
-   if love.keyboard.isDown('d') then
-    x2 = x2 + 5
-   end
-
-
+ 
+ if cc(x, y, w, h,   0, 0, 64, 64) then  
+  hp = hp - 1
+ end
 end
   
 
 function love.draw()
   map:draw()
-  love.graphics.draw(playerImg1, x1, y1)
-  love.graphics.draw(playerImg2, x2, y2)
+  love.graphics.draw(playerImg1, x, y)
+   
+   love.graphics.rectangle('line', 0, 0, 64, 64)
+   love.graphics.print(hp, 0, 0)
 end
