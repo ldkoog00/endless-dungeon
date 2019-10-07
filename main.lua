@@ -56,7 +56,7 @@ end
 
 function love.draw()
   map:draw()
-  love.graphics.draw(playerImg1, x, y)
+  love.graphics.draw(playerImg, x, y)
    
    love.graphics.rectangle('line', 0, 0, 64, 64)
    love.graphics.print(hp, 0, 0)
