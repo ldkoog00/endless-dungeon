@@ -12,22 +12,22 @@ function love.load()
   hp = 100 
   
   map = Map:new(10, 13)
-  floor = love.graphics.newImage('assets-1/dungeon/wall/cobalt_stone_12.png')
-  wall  = love.graphics.newImage('assets-1/dungeon/floor/green_bones_12.png')
+  floor = love.graphics.newImage('assets-1/dungeon/floor/crypt_domino_8a.png')
+  wall  = love.graphics.newImage('assets-1/dungeon/wall/lab-metal_0.png')
   template = {
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { wall, wall, wall, wall, wall, wall, wall, wall, wall, floor},
-    { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
+    { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall},
   } 
     
   map = Map:new(template) 
