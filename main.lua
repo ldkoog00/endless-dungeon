@@ -35,20 +35,26 @@ end
 
 function love.update(dt)
   if love.keyboard.isDown('up') then
-    y = y - 5
+    if cc(x, y, w, h,   0, 0, 832, 64) == false then  
+      y = y - 5
+     end
   end
   if love.keyboard.isDown('down') then
-    y = y + 5
+    if cc(x, y, w, h,   0, 576, 832, 64) == false then  
+      y = y + 5
+     end
   end
   if love.keyboard.isDown('left') then
-    x = x - 5
+    if cc(x, y, w, h,   0, 0, 64, 640) == false then  
+      x = x - 5
+     end
   end
   if love.keyboard.isDown('right') then
     x = x + 5
   end
 
  
- if cc(x, y, w, h,   0, 0, 64, 64) then  
+ if cc(x, y, w, h,   0, 0, 832, 64) then  
   hp = hp - 1
  end
 end
@@ -58,6 +64,8 @@ function love.draw()
   map:draw()
   love.graphics.draw(playerImg, x, y)
    
-   love.graphics.rectangle('line', 0, 0, 64, 64)
+  love.graphics.rectangle('line', 0, 0, 832, 64)
+  love.graphics.rectangle('line', 0, 0, 64, 640)
+  love.graphics.rectangle('line', 0, 576, 832, 64)
    love.graphics.print(hp, 0, 0)
 end
