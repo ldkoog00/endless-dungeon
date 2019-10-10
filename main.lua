@@ -4,8 +4,8 @@ local Util = require 'core/util'
 
 
 function love.load()
-  x = 400
-  y = 300
+  x = 100
+  y = 100
   playerImg = love.graphics.newImage('assets-1/player/base/octopode_1.png')
   w = 64   
   h = 64   
@@ -21,8 +21,8 @@ function love.load()
     { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
     { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
     { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
-    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
-    { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
+    { wall, floor, floor, floor, wall, wall, floor, floor, floor, wall},
+    { wall, floor, floor, floor, wall, wall, floor, floor, floor, wall},
     { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
     { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
     { wall, floor, floor, floor, floor, floor, floor, floor, floor, wall},
@@ -50,8 +50,14 @@ function love.update(dt)
      end
   end
   if love.keyboard.isDown('right') then
-    x = x + 5
+    if cc(x, y, w, h,   768, 0, 64, 640) == false then  
+      x = x + 5
+     if else cc(x, y, w, h,   384, 256, 128, 128) == false then
+      x = x + 5
+    end
+    
   end
+  
 
  
  if cc(x, y, w, h,   0, 0, 832, 64) then  
@@ -67,5 +73,7 @@ function love.draw()
   love.graphics.rectangle('line', 0, 0, 832, 64)
   love.graphics.rectangle('line', 0, 0, 64, 640)
   love.graphics.rectangle('line', 0, 576, 832, 64)
+  love.graphics.rectangle('line', 768, 0, 64, 640)
+  love.graphics.rectangle('line', 384, 256, 128, 128)
    love.graphics.print(hp, 0, 0)
 end
