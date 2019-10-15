@@ -33,6 +33,9 @@ function love.load()
   map = Map:new(template) 
 end
 
+
+
+
 function love.update(dt)
   if love.keyboard.isDown('up') then
     if cc(x, y, w, h,   0, 0, 832, 64) == false then  
@@ -65,6 +68,10 @@ function love.update(dt)
  end
 end
   
+
+
+
+
 
 function love.draw()
   map:draw()
