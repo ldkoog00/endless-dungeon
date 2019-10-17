@@ -29,7 +29,7 @@ function love.load()
     { wall, nil, nil, nil, nil, nil, nil, nil, nil, wall},
     { wall, nil, nil, nil, nil, nil, nil, nil, nil, wall},
     { wall, nil, nil, nil, nil, nil, nil, nil, nil, wall},
-    { wall, nil, nil, nil, nil, nil, nil, nil, nil, wall},
+    { wall, nil, nil, nil, wall, wall, nil, nil, nil, wall},
     { wall, nil, nil, nil, wall, wall, nil, nil, nil, wall},
     { wall, nil, nil, nil, wall, wall, nil, nil, nil, wall},
     { wall, nil, nil, nil, nil, nil, nil, nil, nil, wall},
@@ -38,7 +38,7 @@ function love.load()
     { wall, nil, nil, nil, nil, nil, nil, nil, nil, wall},
     { wall, wall, wall, wall, wall, wall, wall, wall, wall, wall},
   }
-  
+        --left
   floors = {
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
@@ -46,7 +46,7 @@ function love.load()
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
-    { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
+    { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},   -- top
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
@@ -54,7 +54,7 @@ function love.load()
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
   }
-
+                    --right
   map = Map:new(walls) 
   map2 = Map:new(floors) 
 end
@@ -85,24 +85,24 @@ function love.update(dt)
   end
     
   
-  if love.keyboard.isDown('w') then
+  if (yS >= y) then
       if map:cc(xS, yS - 5, wS, hS) == false then  
-        yS = yS - 5
+        yS = yS - 2
        end
     end
-    if love.keyboard.isDown('s') then
+    if (yS <= y) then
       if map:cc(xS, yS + 5, wS, hS) == false then  
-        yS = yS + 5
+        yS = yS + 2
        end
     end
-    if love.keyboard.isDown('a') then
+    if (xS >= x) then
       if map:cc(xS - 5, yS, wS, hS) == false then  
-        xS = xS - 5
+        xS = xS - 2
        end
     end
-    if love.keyboard.isDown('d') then
+    if (xS <= x) then
       if map:cc(xS + 5, yS, wS, hS) == false then  
-        xS = xS + 5
+        xS = xS + 2
       end
     
   end
