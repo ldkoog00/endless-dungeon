@@ -16,21 +16,25 @@ function love.load()
   wS1 = 20
   hS1 = 30
   skeletonImg1 = love.graphics.newImage('assets-2/UNUSED/monsters/skeleton_small.png')
+  
   xS2 = 400
   yS2 = 400
   wS2 = 20
   hS2 = 30
   skeletonImg2 = love.graphics.newImage('assets-2/UNUSED/monsters/skeleton_small.png')
+  
   xS3 = 400
   yS3 = 400
   wS3 = 20
   hS3 = 30
   skeletonImg3 = love.graphics.newImage('assets-2/UNUSED/monsters/skeleton_small.png')
-  xS4 = 400
-  yS4 = 400
-  wS4 = 20
-  hS4 = 30
-  skeletonImg4 = love.graphics.newImage('assets-2/UNUSED/monsters/skeleton_small.png')
+  
+  xSh1 = 745
+  ySh1 = 545
+  wSh1 = 20
+  hSh1 = 40
+  r1 = 0.5
+  shootything1Img = love.graphics.newImage('assets-1/effect/drain_1_old.png')
   
   map = Map:new(10, 13)
   map = Map:new(10, 13)
@@ -78,6 +82,8 @@ end
 
 
 function love.update(dt)
+  r1 = r1 + 0.5
+  
   if love.keyboard.isDown('up') then
     if map:cc(x, y - 5 , w, h) == false then  
       y = y - 5
@@ -147,7 +153,7 @@ function love.update(dt)
   
   if (yS3 >= y) then
     if map:cc(xS3, yS3 - 5, wS3, hS3) == false then  
-      yS3 = yS3 - 0.5
+      yS3 = yS3 - 1.5
      end
   end
   if (yS3 <= y) then
@@ -167,26 +173,25 @@ function love.update(dt)
   
   end
 
-  if (yS4 >= y) then
-    if map:cc(xS4, yS4 - 5, wS4, hS4) == false then  
-      yS4 = yS4 - 2
+  if love.keyboard.isDown('w') then
+    if map:cc(x2, y2 - 5 , w2, h2) == false then  
+      y2 = y2 - 5
      end
   end
-  if (yS4 <= y) then
-    if map:cc(xS4, yS4 + 5, wS4, hS4) == false then  
-      yS4 = yS4 + 2
+  if love.keyboard.isDown('s') then
+    if map:cc(x2, y2 + 5, w2, h2) == false then  
+      y2 = y2 + 5
      end
   end
-  if (xS4 >= x) then
-    if map:cc(xS4 - 5, yS4, wS4, hS4) == false then  
-      xS4 = xS4 - 2
+  if love.keyboard.isDown('a') then
+    if map:cc(x2 - 5, y2, w2, h2) == false then  
+      x2 = x2 - 5
      end
   end
-  if (xS4 <= x) then
-    if map:cc(xS4 + 5, yS4, wS4, hS4) == false then  
-      xS4 = xS4 + 2
+  if love.keyboard.isDown('d') then
+    if map:cc(x2 + 5, y2, w2, h2) == false then  
+      x2 = x2 + 5
     end
-  
   end
 
  
@@ -208,7 +213,7 @@ function love.draw()
   love.graphics.draw(skeletonImg1, xS1, yS1)
   love.graphics.draw(skeletonImg2, xS2, yS2)
   love.graphics.draw(skeletonImg3, xS3, yS3)
-  love.graphics.draw(skeletonImg4, xS4, yS4)
+  love.graphics.draw(shootything1Img, xSh1, ySh1, r1, 1, 1, 10, 20)
    
    love.graphics.print(hp, 0, 0)
 end
