@@ -4,7 +4,7 @@ local Util = require 'core/util'
 
 
 function love.load()
-  x = 100
+  x = 384
   y = 100
   w = 64   
   h = 55   
@@ -34,7 +34,28 @@ function love.load()
   wSh1 = 20
   hSh1 = 40
   r1 = 0.5
-  shootything1Img = love.graphics.newImage('assets-1/effect/drain_1_old.png')
+  shootythingImg1 = love.graphics.newImage('assets-1/effect/drain_1_old.png')
+
+  xSh2 = 85
+  ySh2 = 85
+  wSh2 = 20
+  hSh2 = 40
+  r2 = 0.5
+  shootythingImg2 = love.graphics.newImage('assets-1/effect/drain_1_old.png')
+
+  xSh3 = 85
+  ySh3 = 545
+  wSh3 = 20
+  hSh3 = 40
+  r3 = 0.5
+  shootythingImg3 = love.graphics.newImage('assets-1/effect/drain_1_old.png')
+
+  xSh4 = 745
+  ySh4 = 85
+  wSh4 = 20
+  hSh4 = 40
+  r4 = 0.5
+  shootythingImg4 = love.graphics.newImage('assets-1/effect/drain_1_old.png')
   
   map = Map:new(10, 13)
   map = Map:new(10, 13)
@@ -83,6 +104,9 @@ end
 
 function love.update(dt)
   r1 = r1 + 0.5
+  r2 = r2 + 0.5
+  r3 = r3 + 0.5
+  r4 = r4 + 0.5
   
   if love.keyboard.isDown('up') then
     if map:cc(x, y - 5 , w, h) == false then  
@@ -213,7 +237,10 @@ function love.draw()
   love.graphics.draw(skeletonImg1, xS1, yS1)
   love.graphics.draw(skeletonImg2, xS2, yS2)
   love.graphics.draw(skeletonImg3, xS3, yS3)
-  love.graphics.draw(shootything1Img, xSh1, ySh1, r1, 1, 1, 10, 20)
+  love.graphics.draw(shootythingImg1, xSh1, ySh1, r1, 1, 1, 10, 20)
+  love.graphics.draw(shootythingImg2, xSh2, ySh2, r2, 1, 1, 10, 20)
+  love.graphics.draw(shootythingImg3, xSh3, ySh3, r3, 1, 1, 10, 20)
+  love.graphics.draw(shootythingImg4, xSh4, ySh4, r4, 1, 1, 10, 20)
    
    love.graphics.print(hp, 0, 0)
 end
