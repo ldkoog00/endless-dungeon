@@ -94,7 +94,7 @@ function love.load()
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
     { floor, floor, floor, floor, floor, floor, floor, floor, floor, floor},
   }
-                    --right
+                                                         --right
   map = Map:new(walls) 
   map2 = Map:new(floors) 
 end
@@ -134,7 +134,7 @@ function love.update(dt)
       if map:cc(xS1, yS1 - 5, wS1, hS1) == false then  
         yS1 = yS1 - 0.5
        end
-    end
+      end
     if (yS1 <= y) then
       if map:cc(xS1, yS1 + 5, wS1, hS1) == false then  
         yS1 = yS1 + 0.5
